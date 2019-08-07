@@ -1,0 +1,63 @@
+###订单服务的端口号
+server:
+  port: 8100
+
+###注册到注册中心的服务的名字
+spring:
+   application:
+    name: app-itmayiedu-member
+
+
+
+   datasource:
+     url: jdbc:oracle:thin:@10.28.137.125:1521:tppwt
+     username: tplagent_hm
+     password: tplagent_hm_pw123
+     driver-class-name: oracle.jdbc.driver.OracleDriver
+eureka:
+  client: 
+    service-url:
+       ###当前会员服务注册到eureka服务的地址
+       defaultZone: http://localhost:9100/eureka
+    ###需要将我的服务注册到eureka上
+    register-with-eureka: true
+    ###表示服务需要检索
+    fetch-registry: true
+
+
+
+#ribbon:
+#  ReadTimeout: 5000
+#  ConnectTimeout: 5000
+#
+####开启hystrix注解
+#feign:
+#  hystrix:
+#    enabled: true
+
+###禁止超时时间 
+#hystrix: 
+#  command: 
+#    default: 
+#      execution: 
+#        timeout: 
+#          enabled: false
+
+
+
+#spring.datasource.url = jdbc:oracle:thin:@(DESCRIPTION =    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.7.88)(PORT = 1521))    (CONNECT_DATA =      (SERVER = DEDICATED)      (SERVICE_NAME = orcl)    ))
+#  spring.datasource.username = XXXXXX
+#  spring.datasource.password = YYYYYY
+#
+#  spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+#  spring.datasource.max-idle=10
+#  spring.datasource.max-wait=10000
+#  spring.datasource.min-idle=5
+#  spring.datasource.initial-size=5
+  #XML文件位置 指定DAO与SQL语句关联
+  #mybatis.mapperLocations=classpath:mapper/membermapper.xml
+
+
+
+mybatis:
+  mapper-locations: classpath:mapper/membermapper.xml
